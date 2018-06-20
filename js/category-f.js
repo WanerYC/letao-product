@@ -3,7 +3,7 @@ isLogin();
 $(function() {
 
     var page = 1;
-    var pageSize = 5;
+    var pageSize = 10;
     var totalP = 0;
 
     // 渲染页面

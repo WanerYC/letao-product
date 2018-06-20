@@ -10,7 +10,6 @@ $(function() {
     //  alert(1);
     // 点击事件
     $('#loginBtn').on('click', function() {
-
         var result = $('#loginForm').serializeToJson();
         console.log(result);
 

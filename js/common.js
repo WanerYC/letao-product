@@ -10,6 +10,9 @@ $(function(){
 
 });
 
+// 运行发送cookie
+$.ajaxSetup({crossDomain: true, xhrFields: {withCredentials: true}});
+
 // 全局配置
 var  APP = {
 	// 基础路径

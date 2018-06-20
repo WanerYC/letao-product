@@ -10,6 +10,7 @@ $(function() {
     getData();
 
     // 分页效果
+    // 上一页
     $('#prv').on('click', function() {
         //  alert(1); 
         page--;
@@ -20,6 +21,7 @@ $(function() {
         }
         getData();  
     });
+    // 下一页
     $('#next').on('click', function() {
         // alert(2);
         page++;
@@ -31,7 +33,7 @@ $(function() {
         getData();
     });
 
-    
+    // 获取数据
     function getData () {
         $.ajax({
             type: 'get',
@@ -53,4 +55,32 @@ $(function() {
             }
         });
     }
+
+    // 添加一级分类
+    $('#saveCateg').on('click', function() {
+        // alert(3424);
+        var categoryName = $('#categoryName').val();
+        // console.log(categoryName);
+        if (!categoryName) {
+            alert('请输入分类名称');
+            return;
+        }
+
+        // 发送ajax
+        $.ajax({
+            type: 'post',
+            url: `${APP.baseUrl}/category/addTopCategory`,
+            data: {
+                categoryName: categoryName
+            },
+            success: function (response) {
+                // console.log(response);
+                if (response.success) {
+                    location.reload();
+                }else {
+                    alert('新增失败');
+                }
+            }
+        })
+    });
 });
